@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/leads": {
+      "name": "/leads",
+      "lambdaFunction": "leadHandler",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

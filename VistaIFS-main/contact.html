@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact • Vista Insurance & Financial Services</title>
+
+  <meta name="description" content="Contact Vista Insurance & Financial Services for bookkeeping, payroll, insurance, and compliance support.">
+  
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Site config (webhook + Tidio key) -->
+  <script src="assets/js/vista-config.js"></script>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo-wrap">
+    <img src="assets/Vista_logo.png" alt="Vista IFS logo"
+         onclick="window.location.href='index.html'" style="cursor:pointer">
+    <div class="brand">Vista Insurance & Financial Services</div>
+  </div>
+  <nav class="nav">
+    <a href="index.html#services">Services</a>
+    <a href="about.html">About Us</a>
+    <a href="index.html#resources">Compliance Links</a>
+    <a href="onboarding/index.html">Onboarding</a>
+    <a href="blog/index.html">Blog</a>
+    <a href="contact.html" class="btn" aria-current="page">Contact</a>
+  </nav>
+</header>
+
+<main class="section container">
+  <h1 style="margin:0 0 12px">Contact Us</h1>
+  <p class="muted" style="max-width:70ch">
+    Have questions about bookkeeping, payroll, insurance support, or onboarding?
+    Send us a message below and we’ll reply shortly.
+  </p>
+
+  <p class="muted" style="margin-top:8px">
+    You can also email us directly at
+    <a href="mailto:Support@VistaIFS.com">Support@VistaIFS.com</a>.
+  </p>
+
+  <form id="contactForm" class="form" style="margin-top:20px;max-width:600px">
+    <div class="row">
+      <div>
+        <label>Your Name</label>
+        <input name="name" required>
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" name="email" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Phone (optional)</label>
+        <input name="phone">
+      </div>
+    </div>
+
+    <div>
+      <label>Your Message</label>
+      <textarea name="message" rows="5" required></textarea>
+    </div>
+
+    <button type="submit" class="btn">Send Message</button>
+    <div id="contactMsg" class="muted" style="margin-top:10px"></div>
+  </form>
+</main>
+
+<footer class="footer">
+  © 2025 Vista Insurance & Financial Services • A Marinia Group Company
+</footer>
+
+<script>
+(function(){
+  const form = document.getElementById('contactForm');
+  const msg = document.getElementById('contactMsg');
+
+  // Zapier / API endpoint for contact messages
+  const ENDPOINT = window.VISTA_LEADS_WEBHOOK || "";
+
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    msg.textContent = "Sending...";
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    data.page = "contact.html";
+    data.ts = new Date().toISOString();
+    data.type = "contact";
+
+    // If no endpoint is configured, fail gracefully
+    if (!ENDPOINT) {
+      msg.textContent = "Form is temporarily offline. Please email Support@VistaIFS.com.";
+      return;
+    }
+
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(data)
+      });
+
+      if (res.ok) {
+        msg.textContent = "Thank you! We’ll reply shortly.";
+        form.reset();
+      } else {
+        msg.textContent = "Could not send. Please email Support@VistaIFS.com.";
+      }
+
+    } catch (err) {
+      msg.textContent = "Offline? Please email Support@VistaIFS.com.";
+    }
+  });
+})();
+</script>
+
+<!-- Cookie banner / consent + small site patches -->
+<script src="assets/lead-consent.js" defer></script>
+<script src="assets/site.patch.js" defer></script>
+
+<!-- Tidio chatbot -->
+<script src="https://code.tidio.co/ypzxqwmfxijvyqpmejqbz3rpdh2gbouz.js" async></script>
+
+</body>
+</html>

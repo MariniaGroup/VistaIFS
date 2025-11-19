@@ -1,0 +1,32 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-vistaifsleads-dev-2c279-authRole",
+      "UnauthRoleArn": "arn:aws:iam::038462756345:role/amplify-vistaifsleads-dev-2c279-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::038462756345:role/amplify-vistaifsleads-dev-2c279-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-vistaifsleads-dev-2c279-deployment",
+      "UnauthRoleName": "amplify-vistaifsleads-dev-2c279-unauthRole",
+      "StackName": "amplify-vistaifsleads-dev-2c279",
+      "StackId": "arn:aws:cloudformation:us-west-2:038462756345:stack/amplify-vistaifsleads-dev-2c279/55236430-bf5a-11f0-ad3f-0aab62304699",
+      "AmplifyAppId": "d1x61q7iz8zmwj"
+    },
+    "categories": {
+      "function": {
+        "leadHandler": {
+          "deploymentBucketName": "amplify-vistaifsleads-dev-2c279-deployment",
+          "s3Key": "amplify-builds/leadHandler-70595a6e7a464c34466a-build.zip"
+        }
+      },
+      "api": {
+        "vistaLeadsAPI": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d1x61q7iz8zmwj",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}

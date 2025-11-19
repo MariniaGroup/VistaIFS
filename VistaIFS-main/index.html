@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vista Insurance & Financial Services</title>
+
+  <meta name="description" content="Bookkeeping, payroll, and small-business insurance support—powered by automation and clear guidance.">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preload" as="video" href="assets/Vista_rotate_anim.mp4" type="video/mp4">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Site config (webhook + Tidio key) -->
+  <script src="assets/vista-config.js"></script>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo-wrap">
+    <img src="assets/Vista_logo.png" alt="Vista IFS logo" onclick="window.location.href='index.html'" style="cursor:pointer">
+    <div class="brand">Vista Insurance & Financial Services</div>
+  </div>
+  <nav class="nav">
+    <a href="#services">Services</a>
+    <a href="#about">About Us</a>
+    <a href="#resources">Compliance Links</a>
+    <a href="onboarding/index.html">Onboarding</a>
+    <a href="blog/index.html">Blog</a>
+    <a href="contact.html" class="btn">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero container">
+    <div>
+      <h1>Bookkeeping & Payroll you can trust. Insurance guidance that keeps you covered.</h1>
+      <p>We help small businesses stay compliant and confident—FLSA, OSHA, ERISA, COBRA, and FMLA—while keeping your books clean and your payroll on time.</p>
+
+      <div class="badges">
+        <span class="badge">QuickBooks ProAdvisor</span>
+        <span class="badge">Payroll & Benefits Setup</span>
+        <span class="badge">Automation-First Workflows</span>
+      </div>
+
+      <p style="margin-top:16px">
+        <a href="#learnmore" class="btn">Watch our 49-sec commercial</a>
+        <a href="#resources" class="btn secondary" style="margin-left:10px">Browse compliance links</a>
+      </p>
+    </div>
+
+    <div class="circle-wrap">
+      <video autoplay muted playsinline loop poster="assets/Vista_logo.png" aria-label="Vista rotating logo animation">
+        <source src="assets/Vista_rotate_anim.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section container">
+    <h2 style="margin:0 0 16px">Services</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Bookkeeping</h3>
+        <p>Clean monthly books, reconciliations, and management reports that help you make decisions.</p>
+      </div>
+      <div class="card">
+        <h3>Payroll</h3>
+        <p>Setup, processing, W-2/1099, multi-state support, and benefits coordination.</p>
+      </div>
+      <div class="card">
+        <h3>Insurance Support</h3>
+        <p>Guidance on workers’ comp, liability, and benefits administration to keep your team protected (California only).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section container">
+    <h2 style="margin:0 0 16px">About Us</h2>
+    <p>We provide bookkeeping and payroll services for small businesses across the U.S., and insurance support for California clients.  
+    Our workflows are automation-first, accuracy-driven, and built to help you stay compliant with confidence.</p>
+  </section>
+
+  <!-- COMMERCIAL -->
+  <section id="learnmore" class="section container" style="scroll-margin-top:96px">
+    <h2 style="margin:0 0 16px">Learn More</h2>
+    <div class="media">
+      <video class="video" controls preload="metadata" poster="assets/vista_signage_window.png">
+        <source src="assets/Commercial_Vista_Insurance_and_Financial_Services.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources" class="section container">
+    <h2 style="margin:0 0 16px">Compliance Links</h2>
+    <ul class="links">
+      <li><a href="https://www.dol.gov/agencies/whd/flsa" target="_blank" rel="noopener">FLSA – DOL</a></li>
+      <li><a href="https://www.osha.gov/laws-regs" target="_blank" rel="noopener">OSHA – Regulations</a></li>
+      <li><a href="https://www.dol.gov/general/topic/retirement/erisa" target="_blank" rel="noopener">ERISA – Overview</a></li>
+      <li><a href="https://www.dol.gov/general/topic/health-plans/cobra" target="_blank" rel="noopener">COBRA – Continuation Coverage</a></li>
+      <li><a href="https://www.dol.gov/agencies/whd/fmla" target="_blank" rel="noopener">FMLA – Family & Medical Leave</a></li>
+    </ul>
+    <p style="color:#6b7280;margin-top:12px;font-size:14px">*Educational only, not legal advice.*</p>
+  </section>
+
+  <!-- CTA -->
+  <section class="section container" id="cta-band">
+    <div class="card" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px">
+      <div>
+        <h3 style="margin:0 0 6px">Ready to get started?</h3>
+        <p style="margin:0;color:#475569">Let us handle your bookkeeping & payroll so you can run the business.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <a class="btn" href="onboarding/index.html">Start onboarding</a>
+        <span class="muted" style="opacity:.8">or</span>
+        <a class="btn secondary" target="_blank" href="https://Calendly.com/S-Sambrano" rel="noopener">Book a call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT (inline info, even though we now have a contact page) -->
+  <section id="contact" class="section container">
+    <h2 style="margin:0 0 8px">Let’s talk</h2>
+    <p class="muted">Email: <a href="mailto:Support@VistaIFS.com">Support@VistaIFS.com</a></p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  © 2025 Vista Insurance & Financial Services • A Marinia Group Company
+</footer>
+
+<script src="assets/lead-consent.js" defer></script>
+<script src="assets/site.patch.js" defer></script>
+
+<!-- Tidio chatbot -->
+<script src="https://code.tidio.co/ypzxqwmfxijvyqpmejqbz3rpdh2gbouz.js" async></script>
+
+</body>
+</html>
