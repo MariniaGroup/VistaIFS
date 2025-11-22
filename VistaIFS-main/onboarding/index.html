@@ -1,25 +1,28 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Onboarding – Vista Insurance & Financial Services</title>
+  <title>Onboarding - Vista Insurance & Financial Services</title>
   <link rel="icon" type="image/png" href="../assets/favicon.png">
   <link rel="stylesheet" href="../styles.css">
   <!-- Config (webhooks, Tidio key, etc.) -->
   <script src="../assets/vista-config.js"></script>
 </head>
+
 <body>
   <header class="header">
     <div class="logo-wrap">
       <img src="../assets/Vista_logo.png" alt="Vista Insurance and Financial Services logo"
-           onclick="window.location.href='../index.html'" style="cursor:pointer">
+        onclick="window.location.href='../index.html'" style="cursor:pointer">
       <div class="brand">Vista Insurance & Financial Services</div>
     </div>
     <nav class="nav">
-      <a href="../index.html#services">Services</a>
+      <a href="../services.html">Services</a>
       <a href="../about.html">About Us</a>
       <a href="../index.html#resources">Compliance Links</a>
+      <a href="../refund-policy.html">Refund Policy</a>
       <a href="../blog/index.html">Blog</a>
       <a href="index.html" aria-current="page">Onboarding</a>
       <a href="../contact.html" class="btn">Contact</a>
@@ -31,8 +34,9 @@
       <div class="kicker">Get started</div>
       <h1>Client Onboarding</h1>
       <p style="color:#475569;max-width:800px">
-        Complete the quick intake below, then download your onboarding kit. You can review & sign the Letter of Engagement and Payment Authorization,
-        and return them with any requested documents. If you prefer, we’ll walk you through this on a call.
+        Complete the quick intake below, then download your onboarding kit. You can review &amp; sign
+        the Letter of Engagement and Payment Authorization, and return them with any requested
+        documents. If you prefer, we'll walk you through this on a call.
       </p>
     </section>
 
@@ -41,7 +45,7 @@
         <div class="step active" id="s1dot">1) Company</div>
         <div class="step" id="s2dot">2) Payroll</div>
         <div class="step" id="s3dot">3) Billing</div>
-        <div class="step" id="s4dot">4) Review & Send</div>
+        <div class="step" id="s4dot">4) Review &amp; Send</div>
       </div>
 
       <form class="form" id="onbForm">
@@ -80,15 +84,26 @@
           </div>
           <div class="row">
             <div>
-              <label>Vista Bookkeeping Package</label>
+              <label>Vista IFS Bookkeeping Packages</label>
               <select name="package">
-                <option value="Bronze">Bronze (Starter)</option>
-                <option value="Silver">Silver (Growth)</option>
-                <option value="Gold">Gold (Full Service)</option>
+                <option value="Bronze">Bronze (Starter - Cash Basis)</option>
+                <option value="Silver">Silver (Standard - Accrual)</option>
+                <option value="Gold">Gold (Advanced or Nonprofit)</option>
               </select>
+              <small class="help" style="display:block;color:#475569;margin-top:4px">
+                Vista IFS packages = Our services
+              </small>
             </div>
             <div>
-              <label>QuickBooks Online Subscription</label>
+              <label>
+                QuickBooks Online Subscription
+                <span class="muted" style="font-size:12px;margin-left:6px;">
+                  Required • Sold separately —
+                  <a href="https://quickbooks.intuit.com/pricing/" target="_blank" rel="noopener">
+                    Subscribe here
+                  </a>
+                </span>
+              </label>
               <select name="qbo_plan" required>
                 <option value="">Select QBO plan</option>
                 <option>Simple Start</option>
@@ -96,9 +111,15 @@
                 <option>Plus</option>
                 <option>Advanced</option>
               </select>
-              <small class="help">Vista package = our services. QBO plan = Intuit software.</small>
+
+              <small class="help">
+                QBO plans = Intuit software, billed directly by Intuit.
+                Already using QuickBooks Online?
+                <a href="#add-qbo">See how to add Vista IFS as your accountant.</a>
+              </small>
             </div>
           </div>
+
           <div class="row">
             <div>
               <label><input type="checkbox" name="has_inventory"> Inventory or job costing</label>
@@ -112,7 +133,7 @@
           </div>
           <div class="row">
             <div>
-              <label><input type="checkbox" name="include_payroll"> Add Payroll</label>
+              <label><input type="checkbox" name="include_payroll"> Add Payroll (as an add-on)</label>
             </div>
             <div style="display:flex;align-items:center">
               <div id="estOut" class="estimate">Estimated monthly fee: —</div>
@@ -129,6 +150,7 @@
         <!-- Step 2 -->
         <div id="step2" style="display:none">
           <h3>Payroll details</h3>
+
           <div class="row">
             <div>
               <label>Pay frequency</label>
@@ -144,28 +166,59 @@
               <input name="next_pay_date" type="date">
             </div>
           </div>
+
           <div class="row">
             <div>
-              <label>Employee count</label>
-              <input name="emp_count" type="number" min="1" step="1">
+              <label>W-2 employees</label>
+              <input name="emp_count_w2" type="number" min="0" step="1" placeholder="e.g., 8">
             </div>
             <div>
-              <label>States of payroll</label>
-              <input name="states" placeholder="e.g., CA, AZ">
+              <label>1099 contractors</label>
+              <input name="emp_count_1099" type="number" min="0" step="1" placeholder="e.g., 3">
             </div>
           </div>
+
+          <div class="row">
+            <div>
+              <label>States where you pay staff</label>
+              <input name="states" placeholder="e.g., CA, AZ">
+            </div>
+            <div>
+              <label>Current payroll provider (if any)</label>
+              <input name="current_provider" placeholder="e.g., Gusto, ADP, QuickBooks Payroll">
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label>Time-tracking system</label>
+              <input name="time_tracking" placeholder="e.g., QuickBooks Time, Homebase, none">
+            </div>
+            <div>
+              <label>Special payroll types</label>
+              <div style="display:flex;flex-direction:column;gap:4px;font-size:14px;color:#475569">
+                <label><input type="checkbox" name="tipped_staff"> Tipped staff</label>
+                <label><input type="checkbox" name="union_staff"> Union / CBA employees</label>
+              </div>
+            </div>
+          </div>
+
           <div>
-            <label>Notes/benefits/garnishments we should know about</label>
-            <textarea name="notes" rows="3"></textarea>
+            <label>Notes, benefits, or garnishments we should know about</label>
+            <textarea name="notes" rows="3"
+              placeholder="Health benefits, retirement, garnishments, cash tips, etc."></textarea>
           </div>
         </div>
+
 
         <!-- Step 3 -->
         <div id="step3" style="display:none">
           <h3>Billing authorization basics</h3>
           <p class="notice">
-            For security, <strong>do not send full bank/card numbers via this form</strong>.
-            In the Payment Authorization you can provide last 4 and we’ll collect full details securely.
+            For security, <strong>do not send full bank/card numbers via this form or by email</strong>.
+            After intake, we'll email you a secure QuickBooks Payments link (from Intuit) where you can
+            enter your full card or ACH details directly on Intuit's PCI-compliant site and optionally
+            authorize autopay.
           </p>
           <div class="row">
             <div>
@@ -201,8 +254,20 @@
           <div class="summary" id="summaryBox"></div>
           <div class="notice">
             By continuing, you acknowledge our standard
-            <em>Letter of Engagement — Bookkeeping & Payroll</em> and authorize us to prepare your onboarding steps.
-            This is not an e-signature. Final signatures are captured in the downloadable forms or our secure e-sign flow.
+            <em>Letter of Engagement — Bookkeeping &amp; Payroll</em> and authorize us to prepare your onboarding steps.
+            This is not an e-signature. Final signatures are captured in the downloadable forms or our secure e-sign
+            flow.
+          </div>
+          <div class="notice">
+            <label style="display:flex;align-items:flex-start;gap:8px;">
+              <input type="checkbox" name="accept_refund" style="margin-top:4px">
+              <span>
+                I confirm that I have read and agree to the
+                <a href="../refund-policy.html" target="_blank" rel="noopener">Refund Policy</a>
+                and understand that Vista IFS uses a prepaid monthly subscription model
+                (services are billed in advance of work).
+              </span>
+            </label>
           </div>
         </div>
 
@@ -215,7 +280,7 @@
       </form>
     </section>
 
-    <section class="section container">
+    <section class="section container" id="upload-section">
       <h2 style="margin:0 0 12px">Download your onboarding kit</h2>
       <p class="notice">
         Want a quick PDF draft of your Letter of Engagement with your info?
@@ -225,13 +290,17 @@
       <div class="downloads">
         <a class="btn" href="../assets/VistaIFS_Onboarding_Kit.zip">Download complete kit (ZIP)</a>
         <a class="btn secondary" href="../assets/Flat_Rate_Value_Pricing.pdf" target="_blank">View Pricing (PDF)</a>
-        <a class="btn" href="../assets/VistaIFS_Letter_of_Engagement_v6_anniversary-billing.docx">Letter of Engagement (DOCX)</a>
-        <a class="btn secondary" href="../assets/VistaIFS_Payment_Authorization_Form_v2.docx">Payment Authorization (DOCX)</a>
-        <a class="btn" href="../assets/VistaIFS_Payroll_Policy_Template.docx">Payroll Policy Template (DOCX)</a>
+        <a class="btn secondary" href="../assets/VistaIFS_Refund_Policy.pdf" target="_blank">Refund Policy (PDF)</a>
+        <a class="btn" href="../assets/VistaIFS_Letter_of_Engagement.pdf" target="_blank">Letter of Engagement (PDF)</a>
+        <a class="btn secondary" href="../assets/VistaIFS_Payment_Authorization_Form.pdf" target="_blank">Payment
+          Authorization (PDF)</a>
+        <a class="btn" href="../assets/VistaIFS_Payroll_Policy.pdf" target="_blank">Payroll Policy (PDF)</a>
       </div>
       <p class="notice" style="margin-top:10px">
-        Send signed documents and any requested files to
-        <a href="mailto:Support@VistaIFS.com">Support@VistaIFS.com</a>. A secure upload portal will be available soon.
+        After you sign your onboarding documents, please
+        <strong>upload all signed forms and requested files using the secure upload section below</strong>.
+        If you ever have trouble with the upload tool, you can email us a backup copy at
+        <a href="mailto:Support@VistaIFS.com">Support@VistaIFS.com</a>.
       </p>
     </section>
 
@@ -242,28 +311,44 @@
         <li>QuickBooks Online access (or sign up below) and invite us as your accountant.</li>
         <li>Payroll details: pay frequency, next pay date, employee count, and states.</li>
         <li>Prior payroll reports (last quarter) and year-to-date totals (if switching mid-year).</li>
-        <li>Benefits & deductions info (health, HSA/FSA, garnishments, etc.).</li>
-        <li>Banking details for ACH billing (we’ll collect full info securely after intake).</li>
+        <li>Benefits &amp; deductions info (health, HSA/FSA, garnishments, etc.).</li>
+        <li>Banking details for ACH billing (we'll collect full info securely after intake via QuickBooks Payments).
+        </li>
       </ul>
       <div style="margin-top:10px" class="callout">
         Have everything handy? You can still start now and attach documents later—no problem.
       </div>
     </section>
 
-    <section class="section container">
+    <section class="section container" id="add-qbo">
       <h2 style="margin:0 0 12px">Add us to your QuickBooks</h2>
       <ol class="checklist">
         <li>In QuickBooks Online, go to <strong>Settings ⚙ → Manage users → Accounting firms</strong>.</li>
         <li>Click <strong>Invite</strong> and enter <strong>Support@VistaIFS.com</strong> as the email.</li>
         <li>Leave a note (company name + “Vista IFS onboarding”).</li>
-        <li>Click <strong>Send</strong>. We’ll accept and connect your file.</li>
+        <li>Click <strong>Send</strong>. We'll accept and connect your file.</li>
       </ol>
       <p style="margin-top:8px">
         Not on QuickBooks yet?
-        <a class="btn" href="https://quickbooks.intuit.com/quickbooks/online/" target="_blank" rel="noopener">
+        <a class="btn" href="https://quickbooks.intuit.com/pricing/" target="_blank" rel="noopener">
           Get QuickBooks Online
         </a>
       </p>
+
+      <p style="margin-top:10px;color:#475569">
+        QuickBooks Online subscriptions are billed directly through Intuit. If you choose to
+        activate QuickBooks Payroll during checkout, Intuit will handle the software billing
+        separately.
+        <br><br>
+        Vista IFS provides the <strong>white-glove payroll management layer</strong> on top of
+        your QuickBooks system — including premium onboarding, compliant setup, end-to-end
+        payroll processing, quarterly and annual filings, employee documentation, and ongoing
+        support.
+        <br><br>
+        Explore our high-touch payroll services on the
+        <a href="../payroll.html" class="link">Payroll</a> page.
+      </p>
+
     </section>
 
     <section class="section container">
@@ -271,27 +356,37 @@
       <div class="grid-3">
         <div class="card">
           <h3>Is this a binding agreement?</h3>
-          <p>The intake just collects details. The engagement becomes official when you sign the Letter of Engagement and Payment Authorization.</p>
+          <p>
+            The intake just collects details. The engagement becomes official when you sign the
+            Letter of Engagement and Payment Authorization.
+          </p>
         </div>
         <div class="card">
           <h3>How do you handle sensitive info?</h3>
-          <p>We never ask for full bank/card numbers via web form. After intake, we’ll use a secure method to collect them.</p>
+          <p>
+            We never ask for full bank/card numbers via web form or email. After intake, we'll send
+            a secure QuickBooks Payments link where you can enter them directly on Intuit's site.
+          </p>
         </div>
         <div class="card">
-          <h3>What if I’m mid-year?</h3>
-          <p>No problem. Provide most recent payroll reports and year-to-date totals; we’ll handle the transition.</p>
+          <h3>What if I'm mid-year?</h3>
+          <p>No problem. Provide most recent payroll reports and year-to-date totals; we'll handle the transition.</p>
         </div>
         <div class="card">
           <h3>Can I upload documents?</h3>
-          <p>Today you can email them. If you prefer uploads, ask us and we’ll enable our secure portal.</p>
+          <p>
+            Yes. Use the secure upload form on this page to send signed documents, bank letters,
+            and payroll reports directly to our encrypted storage. Email is only used as a backup
+            if you have trouble with the upload tool.
+          </p>
         </div>
         <div class="card">
           <h3>When will my first payroll run?</h3>
-          <p>Typically within 5–7 business days after we receive complete info and access to your systems.</p>
+          <p>Typically within 5-7 business days after we receive complete info and access to your systems.</p>
         </div>
         <div class="card">
           <h3>Do you support multiple states?</h3>
-          <p>Yes. We’ll register as needed and set up each state’s payroll accounts.</p>
+          <p>Yes. We'll register as needed and set up each state's payroll accounts.</p>
         </div>
       </div>
     </section>
@@ -299,15 +394,17 @@
     <section class="section container">
       <h2 style="margin:0 0 12px">Secure document upload</h2>
       <p class="notice">
-        Upload uses a one-time, pre-signed URL direct to our private S3 bucket. Files never pass through email.
-        (If the button is disabled, uploads aren’t enabled yet—email files to
-        <a href="mailto:Support@VistaIFS.com">Support@VistaIFS.com</a>.)
+        Upload uses a one-time, pre-signed URL direct to our private S3 bucket, so
+        <strong>files never pass through email</strong>. This is the preferred way to send
+        bank letters, prior payroll reports, and signed onboarding documents.
+        If you ever have an issue with the upload button, you can send a backup copy to
+        <a href="mailto:Support@VistaIFS.com">Support@VistaIFS.com</a>.
       </p>
       <div class="form">
         <div class="row">
           <div>
             <label>Choose file</label>
-            <input type="file" id="fileInput" />
+            <input type="file" id="fileInput">
           </div>
           <div>
             <label>File description (optional)</label>
@@ -323,7 +420,9 @@
       <div class="card" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px">
         <div>
           <h3 style="margin:0 0 6px">Ready to get started?</h3>
-          <p style="margin:0;color:#475569">Let us handle your bookkeeping & payroll so you can run the business.</p>
+          <p style="margin:0;color:#475569">
+            Let us handle your bookkeeping &amp; payroll so you can run the business.
+          </p>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <a class="btn" href="../onboarding/index.html">Start onboarding</a>
@@ -334,122 +433,194 @@
     </section>
 
     <script>
-      (function(){
+      (function () {
         const pkg = document.querySelector('select[name=package]');
         const payroll = document.querySelector('input[name=include_payroll]');
         const out = document.getElementById('estOut');
-        function price(){
-          if(!pkg){ return; }
-          const map = {Bronze:149, Silver:499, Gold:999};
+
+        function price() {
+          if (!pkg) return;
+          const map = { Bronze: 199, Silver: 399, Gold: 750 }; // baseline mapping
           const sel = pkg.value;
           let p = map[sel] || 0;
-          if (payroll && payroll.checked) p += (sel==='Bronze'?99:(sel==='Silver'?149:199));
-          out.textContent = p ? ('Estimated monthly fee: $'+p) : 'Estimated monthly fee: —';
+          if (payroll && payroll.checked) {
+            p += (sel === 'Bronze' ? 99 : (sel === 'Silver' ? 149 : 199));
+          }
+          out.textContent = p
+            ? ('Estimated monthly fee: $' + p + '+ (final quote after review)')
+            : 'Estimated monthly fee: —';
         }
-        ['change','keyup'].forEach(evt=>{
-          if(pkg) pkg.addEventListener(evt, price);
-          if(payroll) payroll.addEventListener(evt, price);
+
+        ['change', 'keyup'].forEach(evt => {
+          if (pkg) pkg.addEventListener(evt, price);
+          if (payroll) payroll.addEventListener(evt, price);
         });
         price();
       })();
     </script>
   </main>
 
-  <footer class="footer">© 2025 Vista Insurance & Financial Services • A Marinia Group Company</footer>
+  <footer class="footer">
+    © 2025 Vista Insurance & Financial Services • A Marinia Group Company •
+    · <a href="refund-policy.html">Refund Policy</a>
+    · <a href="privacy.html">Privacy Policy</a>
+    · <a href="terms.html">Terms of Service</a>
+  </footer>
 
   <script>
-  (function() {
-    const form = document.getElementById('onbForm');
-    const FORMS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxwHLMkGEuDYy-WH4r6y_q4R56PQD8Kmau5971LOmH-1rL9kdjPeVwpNcaZWhewYawa/exec";
-    const MODE = "google"; // 'google' or 'postgres'
-    const UPLOADS_ENDPOINT = window.UPLOADS_ENDPOINT || "";
-    const DOCS_ENDPOINT = window.DOCS_ENDPOINT || "";
-    const steps = [document.getElementById('step1'), document.getElementById('step2'), document.getElementById('step3'), document.getElementById('step4')];
-    const dots = [document.getElementById('s1dot'), document.getElementById('s2dot'), document.getElementById('s3dot'), document.getElementById('s4dot')];
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const printBtn = document.getElementById('printBtn');
-    const mailtoBtn = document.getElementById('mailtoBtn');
-    const summaryBox = document.getElementById('summaryBox');
-    let i = 0;
+    (function () {
+      const form = document.getElementById('onbForm');
+      const FORMS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxwHLMkGEuDYy-WH4r6y_q4R56PQD8Kmau5971LOmH-1rL9kdjPeVwpNcaZWhewYawa/exec";
+      const MODE = "google"; // 'google' or 'postgres'
+      const UPLOADS_ENDPOINT = window.UPLOADS_ENDPOINT || "";
+      const DOCS_ENDPOINT = window.DOCS_ENDPOINT || "";
+      const steps = [
+        document.getElementById('step1'),
+        document.getElementById('step2'),
+        document.getElementById('step3'),
+        document.getElementById('step4')
+      ];
+      const dots = [
+        document.getElementById('s1dot'),
+        document.getElementById('s2dot'),
+        document.getElementById('s3dot'),
+        document.getElementById('s4dot')
+      ];
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const printBtn = document.getElementById('printBtn');
+      const mailtoBtn = document.getElementById('mailtoBtn');
+      const summaryBox = document.getElementById('summaryBox');
+      let i = 0;
 
-    function show(n) {
-      steps.forEach((el, idx)=> el.style.display = idx===n ? '' : 'none');
-      dots.forEach((el, idx)=> el.classList.toggle('active', idx===n));
-      prevBtn.style.display = n===0 ? 'none' : '';
-      nextBtn.textContent = n===steps.length-1 ? 'Finish' : 'Next';
-      printBtn.style.display = n===steps.length-1 ? '' : 'none';
-      mailtoBtn.style.display = n===steps.length-1 ? '' : 'none';
-    }
-    function values() {
-      const data = new FormData(form);
-      const obj = {};
-      for (const [k,v] of data.entries()) obj[k]=v;
-      obj.timestamp = new Date().toISOString();
-      return obj;
-    }
-    function buildSummary() {
-      const v = values();
-      const rows = Object.entries(v).map(([k,val]) =>
-        `<tr><td style='padding:6px 8px;border-bottom:1px solid #eef2f7'><strong>${k}</strong></td><td style='padding:6px 8px;border-bottom:1px solid #eef2f7'>${val}</td></tr>`
-      ).join('');
-      summaryBox.innerHTML = `<table style='width:100%;border-collapse:collapse'>${rows}</table>`;
-      const subject = encodeURIComponent(`Onboarding Intake — ${v.company||'Client'}`);
-      const body = encodeURIComponent(Object.entries(v).map(([k,val]) => `${k}: ${val}`).join('\n'));
-      mailtoBtn.href = `mailto:Support@VistaIFS.com?subject=${subject}&body=${body}`;
-      localStorage.setItem('vista_onboarding', JSON.stringify(v));
-    }
-
-    nextBtn.addEventListener('click', ()=> {
-      if (i<steps.length-1) {
-        if (!form.checkValidity()) { form.reportValidity(); return; }
-        i++;
-        if (i===steps.length-1) buildSummary();
-        show(i);
-      } else {
-        buildSummary();
-        alert('All set! Use the buttons below to print/save your intake and email it to Vista. Then download and sign the onboarding kit.');
+      function show(n) {
+        steps.forEach((el, idx) => el.style.display = idx === n ? '' : 'none');
+        dots.forEach((el, idx) => el.classList.toggle('active', idx === n));
+        prevBtn.style.display = n === 0 ? 'none' : '';
+        nextBtn.textContent = n === steps.length - 1 ? 'Finish' : 'Next';
+        printBtn.style.display = n === steps.length - 1 ? '' : 'none';
+        mailtoBtn.style.display = n === steps.length - 1 ? '' : 'none';
       }
+
+      function values() {
+        const data = new FormData(form);
+        const obj = {};
+        for (const [k, v] of data.entries()) obj[k] = v;
+        obj.timestamp = new Date().toISOString();
+        return obj;
+      }
+
+      function buildSummary() {
+        const v = values();
+        const rows = Object.entries(v).map(([k, val]) =>
+          `<tr>
+             <td style="padding:6px 8px;border-bottom:1px solid #eef2f7"><strong>${k}</strong></td>
+             <td style="padding:6px 8px;border-bottom:1px solid #eef2f7">${val}</td>
+           </tr>`
+        ).join('');
+        summaryBox.innerHTML = `<table style="width:100%;border-collapse:collapse">${rows}</table>`;
+
+        const subject = encodeURIComponent(`Onboarding Intake — ${v.company || 'Client'}`);
+        const body = encodeURIComponent(
+          Object.entries(v).map(([k, val]) => `${k}: ${val}`).join('\n')
+        );
+        mailtoBtn.href = `mailto:Support@VistaIFS.com?subject=${subject}&body=${body}`;
+        localStorage.setItem('vista_onboarding', JSON.stringify(v));
+      }
+
+      nextBtn.addEventListener('click', () => {
+        if (i < steps.length - 1) {
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+          i++;
+          if (i === steps.length - 1) buildSummary();
+          show(i);
+        } else {
+          // Final step: enforce refund-policy checkbox
+          const refundChk = form.querySelector('input[name="accept_refund"]');
+          if (refundChk && !refundChk.checked) {
+            alert('Please confirm that you have read and agree to the Refund Policy before continuing.');
+            return;
+          }
+          buildSummary();
+          alert(
+            'All set! Print or save your intake for your records, then download and sign your onboarding kit and use the secure upload section below to send your documents. We'll follow up with a secure QuickBooks Payments link for your card or ACH details.'
+          );
+    }
+      });
+
+    prevBtn.addEventListener('click', () => {
+      if (i > 0) show(--i);
     });
-    prevBtn.addEventListener('click', ()=> { if (i>0) show(--i); });
-    printBtn.addEventListener('click', ()=> window.print());
+
+    printBtn.addEventListener('click', () => window.print());
 
     try {
-      const saved = JSON.parse(localStorage.getItem('vista_onboarding')||'null');
+      const saved = JSON.parse(localStorage.getItem('vista_onboarding') || 'null');
       if (saved) {
-        [...form.elements].forEach(el=> { if (el.name && saved[el.name]) el.value = saved[el.name]; });
+        [...form.elements].forEach(el => {
+          if (el.name && saved[el.name]) {
+            if (el.type === 'checkbox') {
+              el.checked = !!saved[el.name];
+            } else {
+              el.value = saved[el.name];
+            }
+          }
+        });
       }
-    } catch(e){}
+    } catch (e) { }
 
     show(0);
 
+    // Secure upload logic
     const fileInput = document.getElementById('fileInput');
     const uploadBtn = document.getElementById('uploadBtn');
     const uploadStatus = document.getElementById('uploadStatus');
-    if (!UPLOADS_ENDPOINT) { uploadBtn.disabled = true; uploadStatus.textContent = 'Uploads are not enabled yet.'; }
-    uploadBtn?.addEventListener('click', async () => {
-      const f = fileInput.files?.[0];
-      if (!f) { alert('Choose a file first.'); return; }
-      uploadStatus.textContent = 'Requesting secure upload link…';
-      try {
-        const res = await fetch(UPLOADS_ENDPOINT + '?filename=' + encodeURIComponent(f.name) + '&type=' + encodeURIComponent(f.type||'application/octet-stream'));
-        if (!res.ok) throw new Error('presign failed');
-        const { url, fields, objectUrl } = await res.json();
-        const formData = new FormData();
-        Object.entries(fields).forEach(([k,v])=> formData.append(k,v));
-        formData.append('file', f);
-        const s3 = await fetch(url, { method:'POST', body: formData });
-        if (s3.ok) {
-          uploadStatus.innerHTML = 'Uploaded ✔ ' + (objectUrl ? ('<a target="_blank" href="'+objectUrl+'">View</a>') : '');
-        } else {
-          throw new Error('upload failed');
-        }
-      } catch(e) {
-        uploadStatus.textContent = 'Upload failed. Please email the file instead.';
-      }
-    });
 
-  })();
+    if (!UPLOADS_ENDPOINT) {
+      uploadBtn.disabled = true;
+      uploadStatus.textContent =
+        'Uploads are temporarily offline while we finish setup. If you need to send documents right away, email them to Support@VistaIFS.com.';
+    }
+    if (uploadBtn) {
+      uploadBtn.addEventListener('click', async () => {
+        const f = fileInput.files && fileInput.files[0];
+        if (!f) {
+          alert('Choose a file first.');
+          return;
+        }
+
+        uploadStatus.textContent = 'Requesting secure upload link…';
+
+        try {
+          const res = await fetch(
+            UPLOADS_ENDPOINT +
+            '?filename=' + encodeURIComponent(f.name) +
+            '&type=' + encodeURIComponent(f.type || 'application/octet-stream')
+          );
+          if (!res.ok) throw new Error('presign failed');
+
+          const { url, fields, objectUrl } = await res.json();
+          const formData = new FormData();
+          Object.entries(fields).forEach(([k, v]) => formData.append(k, v));
+          formData.append('file', f);
+
+          const s3 = await fetch(url, { method: 'POST', body: formData });
+          if (s3.ok) {
+            uploadStatus.innerHTML =
+              'Uploaded ✔ ' + (objectUrl ? `<a target="_blank" href="${objectUrl}">View</a>` : '');
+          } else {
+            throw new Error('upload failed');
+          }
+        } catch (e) {
+          uploadStatus.textContent =
+            'Upload failed. Please try again in a moment or email the file to Support@VistaIFS.com as a backup.';
+        }
+      });
+    }
+    }) ();
   </script>
 
   <!-- Cookie / consent + site patch -->
@@ -459,9 +630,9 @@
   <!-- VistaIFS Lead Capture Modal -->
   <div id="vistaLeadModal" class="lead-modal hidden" aria-hidden="true" role="dialog" aria-labelledby="leadTitle">
     <div class="lead-card">
-      <button class="lead-close" id="leadClose" aria-label="Close">×</button>
+      <button class="lead-close" id="leadClose" aria-label="Close">x</button>
       <h3 id="leadTitle">Get your free bookkeeping checklist</h3>
-      <p class="lead-sub">We’ll also send pricing and a quick-start guide.</p>
+      <p class="lead-sub">We'll also send pricing and a quick-start guide.</p>
       <form id="leadForm">
         <div class="lead-row">
           <input name="name" placeholder="Your name" required>
@@ -486,54 +657,70 @@
 
   <!-- Lead popup logic -->
   <script>
-  (function(){
-    const modal = document.getElementById('vistaLeadModal');
-    const closeBtn = document.getElementById('leadClose');
-    const form = document.getElementById('leadForm');
-    const msg = document.getElementById('leadMsg');
-    const KEY='vista_lead_captured_v1';
+    (function () {
+      const modal = document.getElementById('vistaLeadModal');
+      const closeBtn = document.getElementById('leadClose');
+      const form = document.getElementById('leadForm');
+      const msg = document.getElementById('leadMsg');
+      const KEY = 'vista_lead_captured_v1';
 
-    function openModal(){ 
-      if(localStorage.getItem(KEY)) return;
-      modal.classList.remove('hidden'); 
-      modal.setAttribute('aria-hidden','false');
-    }
-    function closeModal(){ 
-      modal.classList.add('hidden'); 
-      modal.setAttribute('aria-hidden','true');
-    }
-
-    // show after 8s or on exit intent
-    setTimeout(openModal, 8000);
-    document.addEventListener('mouseout', (e)=>{
-      if(e.clientY<=0){ openModal(); }
-    });
-
-    closeBtn && closeBtn.addEventListener('click', closeModal);
-    modal && modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
-
-    form && form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      msg.textContent = 'Sending...';
-      const data = Object.fromEntries(new FormData(form).entries());
-      data.page = location.pathname;
-      data.ts = new Date().toISOString();
-      try{
-        const endpoint = window.VISTA_LEADS_WEBHOOK || "https://hooks.zapier.com/hooks/catch/REPLACE/ZAP/";
-        const res = await fetch(endpoint, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
-        if(res.ok){
-          msg.textContent = 'Thanks! Check your email in a minute.';
-          localStorage.setItem(KEY,'1');
-          setTimeout(closeModal, 1200);
-        }else{
-          msg.textContent = 'Could not send. Please email Support@VistaIFS.com';
-        }
-      }catch(err){
-        msg.textContent = 'Offline? Please email Support@VistaIFS.com';
+      function openModal() {
+        if (localStorage.getItem(KEY)) return;
+        modal.classList.remove('hidden');
+        modal.setAttribute('aria-hidden', 'false');
       }
-    });
-  })();
-  </script>
 
+      function closeModal() {
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+
+      // show after 8s or on exit intent
+      setTimeout(openModal, 8000);
+      document.addEventListener('mouseout', (e) => {
+        if (e.clientY <= 0) {
+          openModal();
+        }
+      });
+
+      closeBtn && closeBtn.addEventListener('click', closeModal);
+      modal && modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      form && form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        msg.textContent = 'Sending...';
+        const data = Object.fromEntries(new FormData(form).entries());
+        data.page = location.pathname;
+        data.ts = new Date().toISOString();
+
+        try {
+          const endpoint = window.VISTA_LEADS_WEBHOOK || "https://hooks.zapier.com/hooks/catch/REPLACE/ZAP/";
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          if (res.ok) {
+            msg.textContent = 'Thanks! Check your email in a minute.';
+            localStorage.setItem(KEY, '1');
+            setTimeout(closeModal, 1200);
+          } else {
+            msg.textContent = 'Could not send. Please email Support@VistaIFS.com';
+          }
+        } catch (err) {
+          msg.textContent = 'Offline? Please email Support@VistaIFS.com';
+        }
+      });
+    })();
+  </script>
+  <footer class="footer">
+    © 2025 Vista Insurance & Financial Services • A Marinia Group Company
+    · <a href="../refund-policy.html">Refund Policy</a>
+    · <a href="../privacy.html">Privacy Policy</a>
+    · <a href="../terms.html">Terms of Service</a>
+  </footer>
 </body>
+
 </html>

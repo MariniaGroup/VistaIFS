@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Letter of Engagement – Draft</title>
+  <title>Letter of Engagement - Draft</title>
   <link rel="icon" type="image/png" href="../assets/favicon.png">
   <link rel="stylesheet" href="../styles.css">
   <style>
@@ -16,13 +16,14 @@
 <body>
   <header class="header">
     <div class="logo-wrap">
-      <img src="../assets/Vista_logo.png" alt="Vista logo" onclick="window.location.href='../index.html'" style="cursor:pointer">
+      <img src="../assets/Vista_logo.png" alt="Vista logo"
+           onclick="window.location.href='../index.html'" style="cursor:pointer">
       <div class="brand">Vista Insurance & Financial Services</div>
     </div>
     <nav class="nav">
       <a href="index.html">Back to Onboarding</a>
       <button class="btn" onclick="window.print()">Print/Save PDF</button>
-          <a href="https://Calendly.com/S-Sambrano" target="_blank" class="btn secondary">Book a call</a>
+      <a href="https://Calendly.com/S-Sambrano" target="_blank" class="btn secondary">Book a call</a>
     </nav>
   </header>
 
@@ -30,7 +31,7 @@
     <h1>Letter of Engagement (Draft)</h1>
     <div class="muted" id="meta"></div>
 
-    <p>This draft auto-fills the basics from your intake so you can quickly generate a PDF. The full legal terms are in our DOCX version.</p>
+    <p>This draft auto-fills the basics from your intake so you can quickly generate a PDF. The full legal terms are in our PDF version.</p>
 
     <h2>Parties</h2>
     <p><strong>Client:</strong> <span id="company"></span><br>
@@ -39,7 +40,7 @@
     <h2>Scope of services</h2>
     <ul>
       <li>Bookkeeping — monthly close and reconciliations</li>
-      <li>Payroll — processing, filings, W‑2/1099</li>
+      <li>Payroll — processing, filings, W-2/1099</li>
       <li>Compliance support — FLSA/OSHA/ERISA/COBRA/FMLA resources</li>
     </ul>
 
@@ -48,17 +49,17 @@
        Billing: monthly, auto-debit when authorized.</p>
 
     <h2>Term</h2>
-    <p>Month-to-month with anniversary billing. Either party may terminate with written notice per the DOCX terms.</p>
+    <p>Month-to-month with anniversary billing. Either party may terminate with written notice per the PDF terms.</p>
 
     <h2>Client responsibilities</h2>
     <ul>
       <li>Provide timely and accurate information and access.</li>
-      <li>Add Vista to your QuickBooks Online company (invite <strong>S.Sambrano@MariniaGroup.com</strong>).</li>
+      <li>Add Vista to your QuickBooks Online company (invite <strong>Support@VistaIFS.com</strong>).</li>
       <li>Review deliverables and notify us of discrepancies within 10 days.</li>
     </ul>
 
     <h2>Acceptance</h2>
-    <p>By signing below, Client agrees to engage Vista Insurance & Financial Services per the scope and fee structure above and the standard terms in the DOCX Letter of Engagement.</p>
+    <p>By signing below, Client agrees to engage Vista Insurance & Financial Services per the scope and fee structure above and the standard terms in the PDF Letter of Engagement.</p>
 
     <p style="margin-top:40px">
       <strong>Client representative</strong><br><br>
@@ -66,20 +67,33 @@
       Name & Title: _________________________
     </p>
 
-    <p class="muted" style="margin-top:24px">This PDF is for convenience and does not replace our full Letter of Engagement document.</p>
+    <p class="muted" style="margin-top:24px">
+      This PDF is for convenience and does not replace our full Letter of Engagement document.
+    </p>
   </main>
 
-<script>
-  (function(){
-    const data = JSON.parse(localStorage.getItem('vista_onboarding')||'{}');
-    function set(id, v){ var el = document.getElementById(id); if (el) el.textContent = v || ''; }
-    set('company', data.company || '');
-    set('contact', data.contact || '');
-    set('email', data.email || '');
-    set('package', data.package || '');
-    document.getElementById('meta').textContent = new Date().toLocaleString();
-  })();
-</script>
-<script src="/assets/lead-consent.js" defer></script>
+  <script>
+    (function(){
+      const data = JSON.parse(localStorage.getItem('vista_onboarding') || '{}');
+      function set(id, v){
+        var el = document.getElementById(id);
+        if (el) el.textContent = v || '';
+      }
+      set('company', data.company || '');
+      set('contact', data.contact || '');
+      set('email', data.email || '');
+      set('package', data.package || '');
+      document.getElementById('meta').textContent = new Date().toLocaleString();
+    })();
+  </script>
+  <script src="../assets/lead-consent.js" defer></script>
+
+  <footer class="footer">
+    © 2025 Vista Insurance & Financial Services • A Marinia Group Company
+    · <a href="../refund-policy.html">Refund Policy</a>
+    · <a href="../privacy.html">Privacy Policy</a>
+    · <a href="../terms.html">Terms of Service</a>
+  </footer>
+
 </body>
 </html>
